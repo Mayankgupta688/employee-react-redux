@@ -5,16 +5,28 @@ import * as actions from "../actions";
 
 class App extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.movieList();
     }
+
+    renderMovies() {
+        if(this.props.movies) {
+            return this.props.movies.map((movie) => {
+                return <div key={movie.id}>{movie.name}</div>
+            })
+        }
+    }
+
     render() {
-        return <div>Hello World</div>
+        return (
+            <div>
+                <div>{this.renderMovies()}</div>
+            </div>
+        )
     }
 }
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
         movies: state.movies
     }
