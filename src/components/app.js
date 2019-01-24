@@ -17,10 +17,21 @@ class App extends React.Component {
         }
     }
 
+    renderEmployees() {
+        if(this.props.employees) {
+            return this.props.employees.map((employee) => {
+                return <div key={employee.id}>{employee.name}</div>
+            })
+        }
+    }
+
     render() {
         return (
             <div>
-                <div>{this.renderMovies()}</div>
+                <b>Movie List:</b>
+                <div>{this.renderMovies()}</div><br/><br/><br/>
+                <b>Employee List:</b>
+                <div>{this.renderEmployees()}</div>
             </div>
         )
     }
@@ -28,7 +39,8 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        movies: state.movies
+        movies: state.movies,
+        employees: state.employees
     }
 }
 
