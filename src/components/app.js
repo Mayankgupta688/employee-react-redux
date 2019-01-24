@@ -6,7 +6,7 @@ import * as actions from "../actions";
 class App extends React.Component {
 
     componentDidMount() {
-        this.props.movieList();
+        //this.props.movieList();
     }
 
     renderMovies() {
