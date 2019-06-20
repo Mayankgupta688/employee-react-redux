@@ -16,7 +16,7 @@ export function employeeList(employees) {
 
 export function loadEmployeeData() {
     return function(dispatch) {
-        return axios.get("http://localhost:3004/employeeDetails").then(response => {
+        return axios.get("http://5c055de56b84ee00137d25a0.mockapi.io/api/v1/employees").then(response => {
             dispatch(employeeList(response.data))
         })
     }
@@ -24,8 +24,22 @@ export function loadEmployeeData() {
 
 export function loadMoviesData() {
     return function(dispatch) {
-        return axios.get("http://localhost:3004/movieLists").then(response => {
+        return axios.get("http://5c055de56b84ee00137d25a0.mockapi.io/api/v1/employees").then(response => {
             dispatch(movieList(response.data))
         })
+    }
+}
+
+export function deleteEmployee(id) {
+    return {
+        type: "DELETE_EMPLOYEE_LIST",
+        employeeId: id
+    }
+}
+
+export function addEmployee(employeeData) {
+    return {
+        type: "ADD_EMPLOYEE",
+        employeeData: employeeData
     }
 }
